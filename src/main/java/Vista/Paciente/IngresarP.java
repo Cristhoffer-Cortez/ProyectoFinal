@@ -31,7 +31,7 @@ public class IngresarP extends javax.swing.JInternalFrame {
 
         txtsexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HOMBRE", "MUJER" }));
 
-        jButton1.setText("CREAR PACIENTE.");
+        jButton1.setText("GUARDAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CrearPaciente(evt);
@@ -53,11 +53,11 @@ public class IngresarP extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3)
                         .addComponent(txtedad))
                     .addComponent(txtsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(282, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(122, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(171, 171, 171))
+                .addContainerGap(123, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(104, 104, 104))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,13 +86,37 @@ public class IngresarP extends javax.swing.JInternalFrame {
 
     private void CrearPaciente(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearPaciente
         String Cedula = txtcedula.getText();
-        String Nombre= txtnombre.getText();
-        int Edad=Integer.parseInt(txtedad.getText());
+        String Nombre = txtnombre.getText();
+        String Edad = txtedad.getText();
         boolean Sexo = txtsexo.getSelectedItem().toString().equals("HOMBRE");
-        
+        if (Cedula.isEmpty() || Nombre.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "LLENE TODOS LOS CAMPOS.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        int edad;
+        try {
+            edad = Integer.parseInt(Edad);
+        if (edad <= 0) {
+            JOptionPane.showMessageDialog(this, "LA EDAD DEBE SER UN NUMERO REAL.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(this, "LA EDAD DEBE SER UN NUMERO.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+        }
+
+        if (!Cedula.matches("[0-9]+")) {
+        JOptionPane.showMessageDialog(this, "LA CEDULA DEBE CONTENER NUMMEROS.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+        }
+
+        if (!Nombre.matches("[a-zA-Z\\s]+")) {
+        JOptionPane.showMessageDialog(this, "EL NOMBRE DEBE CONTENER SOLO LECTRAS.", "Error", JOptionPane.ERROR_MESSAGE);
+        return;
+        }
         ControladorPaciente pacienteControlador = ControladorPaciente.getInstancia();
         
-        pacienteControlador.guardarDatos(Cedula, Nombre, Edad, Sexo);
+        pacienteControlador.guardarDatos(Cedula, Nombre, edad, Sexo);
         
         JOptionPane.showMessageDialog(this, "Guardado correctamente");
         txtcedula.setText("");

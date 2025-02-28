@@ -13,7 +13,7 @@ public class ListarM extends javax.swing.JInternalFrame {
     public ListarM() {
         initComponents();
         tablalist.setModel(tm);
-        String columnas[] = {"Cedula", "Nombres", "Edad", "Sexo","Especialidad"};
+        String columnas[] = {"Cedula", "Nombre", "Edad", "Sexo","Especialidad"};
         tm.addColumn(columnas[0]);
         tm.addColumn(columnas[1]);
         tm.addColumn(columnas[2]);
@@ -23,8 +23,8 @@ public class ListarM extends javax.swing.JInternalFrame {
         listartodo();
     }
     public void listartodo (){
-        for (MedicoM PM : mc.ListarMedicos()) {
-            Object[] fila ={PM.getCedula(), PM.getNombre(), PM.getEdad(), PM.getSexo(),PM.GetEspecialidadmodelo()};
+        for (MedicoM mm : mc.ListarMedicos()) {
+            Object[] fila ={mm.getCedula(), mm.getNombre(), mm.getEdad(), mm.getSexo(),mm.GetEspecialidadmodelo()};
             tm.addRow(fila);
         }
     }
@@ -90,7 +90,12 @@ public class ListarM extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtcedulaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcedulaKeyReleased
-        
+        tm.setRowCount(0);
+        String cedula = txtcedulab.getText();
+        for (MedicoM mm : mc.BuscarMedico(cedula)) {
+            Object[] fila = {mm.getCedula(), mm.getNombre(), mm.getEdad(), mm.getSexo(),mm.GetEspecialidadmodelo()};
+            tm.addRow(fila);
+        }
     }//GEN-LAST:event_txtcedulaKeyReleased
 
 

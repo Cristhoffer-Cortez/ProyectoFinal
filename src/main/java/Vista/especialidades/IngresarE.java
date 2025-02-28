@@ -59,7 +59,18 @@ public class IngresarE extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
-        ec.GuardarEspecialidad(txtespecialidad.getText());
+        String especialidad = txtespecialidad.getText();
+
+        if (especialidad.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "PORFAVOR LLENE LOS CAMPOS.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (!especialidad.matches("[a-zA-Z\\s]+")) {
+            JOptionPane.showMessageDialog(null, "LA ESPECIALIDAD SOLO DEBE CONTENER LETRAS.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        ec.GuardarEspecialidad(especialidad);
         JOptionPane.showMessageDialog(null, txtespecialidad.getText()+" Ingresado correctamente");
         txtespecialidad.setText("");
     }//GEN-LAST:event_BtnGuardarActionPerformed

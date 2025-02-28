@@ -1,5 +1,7 @@
 package Vista;
 
+import Vista.Citas.IngresarC;
+import Vista.Citas.ListarC;
 import Vista.Medicos.IngresarM;
 import Vista.Medicos.ListarM;
 import Vista.Paciente.IngresarP;
@@ -21,14 +23,17 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        IngresarP = new javax.swing.JMenuItem();
+        ListarP = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        IngresarEspecialidad = new javax.swing.JMenuItem();
-        BtnListar = new javax.swing.JMenuItem();
+        IngresarE = new javax.swing.JMenuItem();
+        BtnListarE = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         BtnIngresarM = new javax.swing.JMenuItem();
         BtnListarM = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        BtnIngresarC = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -36,11 +41,11 @@ public class Principal extends javax.swing.JFrame {
         contenedorprincipal.setLayout(contenedorprincipalLayout);
         contenedorprincipalLayout.setHorizontalGroup(
             contenedorprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 663, Short.MAX_VALUE)
+            .addGap(0, 655, Short.MAX_VALUE)
         );
         contenedorprincipalLayout.setVerticalGroup(
             contenedorprincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 379, Short.MAX_VALUE)
+            .addGap(0, 377, Short.MAX_VALUE)
         );
 
         jMenu1.setText("INICIO");
@@ -48,41 +53,41 @@ public class Principal extends javax.swing.JFrame {
 
         jMenu2.setText("PACIENTES");
 
-        jMenuItem1.setText("INGRESAR.");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        IngresarP.setText("INGRESAR.");
+        IngresarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ingresar(evt);
+                IngresarP(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        jMenu2.add(IngresarP);
 
-        jMenuItem2.setText("LISTAR.");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        ListarP.setText("LISTAR.");
+        ListarP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Listar(evt);
+                ListarP(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenu2.add(ListarP);
 
         jMenuBar1.add(jMenu2);
 
         jMenu4.setText("ESPECIALIDADES");
 
-        IngresarEspecialidad.setText("INGRESAR.");
-        IngresarEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+        IngresarE.setText("INGRESAR.");
+        IngresarE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IngresarEspecialidadActionPerformed(evt);
+                IngresarEActionPerformed(evt);
             }
         });
-        jMenu4.add(IngresarEspecialidad);
+        jMenu4.add(IngresarE);
 
-        BtnListar.setText("LISTAR.");
-        BtnListar.addActionListener(new java.awt.event.ActionListener() {
+        BtnListarE.setText("LISTAR.");
+        BtnListarE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnListarActionPerformed(evt);
+                BtnListarEActionPerformed(evt);
             }
         });
-        jMenu4.add(BtnListar);
+        jMenu4.add(BtnListarE);
 
         jMenuBar1.add(jMenu4);
 
@@ -106,6 +111,26 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
+        jMenu3.setText("CITAS");
+
+        BtnIngresarC.setText("INGRESARC.");
+        BtnIngresarC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnIngresarCActionPerformed(evt);
+            }
+        });
+        jMenu3.add(BtnIngresarC);
+
+        jMenuItem4.setText("LISTARC.");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnListarC(evt);
+            }
+        });
+        jMenu3.add(jMenuItem4);
+
+        jMenuBar1.add(jMenu3);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,31 +141,31 @@ public class Principal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(contenedorprincipal, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(contenedorprincipal)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Ingresar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ingresar
+    private void IngresarP(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarP
         contenedorprincipal.removeAll();
         contenedorprincipal.add(new IngresarP()).setVisible(true);
-    }//GEN-LAST:event_Ingresar
+    }//GEN-LAST:event_IngresarP
 
-    private void Listar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Listar
+    private void ListarP(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarP
         contenedorprincipal.removeAll();
         contenedorprincipal.add(new ListarP()).setVisible(true);
-    }//GEN-LAST:event_Listar
+    }//GEN-LAST:event_ListarP
 
-    private void IngresarEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarEspecialidadActionPerformed
+    private void IngresarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarEActionPerformed
         contenedorprincipal.removeAll();
         contenedorprincipal.add(new IngresarE()).setVisible(true);
-    }//GEN-LAST:event_IngresarEspecialidadActionPerformed
+    }//GEN-LAST:event_IngresarEActionPerformed
 
-    private void BtnListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListarActionPerformed
+    private void BtnListarEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListarEActionPerformed
         contenedorprincipal.removeAll();
         contenedorprincipal.add(new ListarE()).setVisible(true);
-    }//GEN-LAST:event_BtnListarActionPerformed
+    }//GEN-LAST:event_BtnListarEActionPerformed
 
     private void BtnIngresarMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarMActionPerformed
         contenedorprincipal.removeAll();
@@ -151,6 +176,16 @@ public class Principal extends javax.swing.JFrame {
         contenedorprincipal.removeAll();
         contenedorprincipal.add(new ListarM()).setVisible(true);
     }//GEN-LAST:event_BtnListarMActionPerformed
+
+    private void BtnIngresarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnIngresarCActionPerformed
+        contenedorprincipal.removeAll();
+        contenedorprincipal.add(new IngresarC()).setVisible(true);
+    }//GEN-LAST:event_BtnIngresarCActionPerformed
+
+    private void BtnListarC(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnListarC
+        contenedorprincipal.removeAll();
+        contenedorprincipal.add(new ListarC()).setVisible(true);
+    }//GEN-LAST:event_BtnListarC
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -182,17 +217,20 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem BtnIngresarC;
     private javax.swing.JMenuItem BtnIngresarM;
-    private javax.swing.JMenuItem BtnListar;
+    private javax.swing.JMenuItem BtnListarE;
     private javax.swing.JMenuItem BtnListarM;
-    private javax.swing.JMenuItem IngresarEspecialidad;
+    private javax.swing.JMenuItem IngresarE;
+    private javax.swing.JMenuItem IngresarP;
+    private javax.swing.JMenuItem ListarP;
     private javax.swing.JDesktopPane contenedorprincipal;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
 }

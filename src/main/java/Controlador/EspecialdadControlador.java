@@ -35,5 +35,14 @@ public class EspecialdadControlador {
             }
         }
         return null;
+    }
+    public ArrayList<Especialidad>BuscarEspecialidad(String cedula){
+        ArrayList<Especialidad> nuevaLista= new ArrayList<>();
+        for (Especialidad especialidadn : especialidad) {
+            if (especialidadn.getNombre().contains(cedula)){
+                nuevaLista.add(especialidadn);
+            }  
+        }
+        return nuevaLista;
     }    
 }
