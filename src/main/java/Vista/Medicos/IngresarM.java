@@ -120,7 +120,7 @@ public class IngresarM extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "LLENE TODOS LOS CAMPOS.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
-
+        
         if (!Cedula.matches("[0-9]+")) {
             JOptionPane.showMessageDialog(this, "LA CEDULA DEBE CONTENER SOLO NUMEROS.", "Error", JOptionPane.ERROR_MESSAGE);
             return;

@@ -12,7 +12,7 @@ public class Paciente {
         this.edad = edad;
         this.sexo = sexo;
     }
-
+    //
     public String getCedula() {
         return cedula;
     }

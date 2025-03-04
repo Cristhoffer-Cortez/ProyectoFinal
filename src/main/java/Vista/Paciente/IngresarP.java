@@ -5,7 +5,7 @@ import Controlador.ControladorPaciente;
 import javax.swing.JOptionPane;
 
 public class IngresarP extends javax.swing.JInternalFrame {
-    
+    //
     public IngresarP() {
         initComponents();
     }

@@ -12,6 +12,10 @@ public class MedicoM extends Paciente {
         return especialidadmodelo;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+    
     public void setEspecialidadmodelo(Especialidad especialidadmodelo) {
         this.especialidadmodelo = especialidadmodelo;
     }

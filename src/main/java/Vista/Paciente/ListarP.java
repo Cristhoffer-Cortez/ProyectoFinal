@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 public class ListarP extends javax.swing.JInternalFrame {
     DefaultTableModel tm = new DefaultTableModel();
     ControladorPaciente PC = ControladorPaciente.getInstancia();
+    //
     public ListarP() {
         initComponents();
         tablalist.setModel(tm);

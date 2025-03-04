@@ -6,7 +6,7 @@ public class Especialidad {
     public Especialidad(String nombre) {
         this.nombre = nombre;
     }
-
+// oBTENER ESPECIALIDAD
     public String getNombre() {
         return nombre;
     }
@@ -14,5 +14,5 @@ public class Especialidad {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-   
+    
 }

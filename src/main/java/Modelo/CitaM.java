@@ -1,14 +1,14 @@
 package Modelo;
 
 public class CitaM {
-    public String paciente;
-    public String especialidad;
-    public String medico;
+    public Paciente paciente;
+    public Especialidad especialidad;
+    public MedicoM medico;
     public String descripcion;
     public String fecha;
     public String hora;
 
-    public CitaM(String paciente, String especialidad, String medico, String descripcion, String fecha, String hora) {
+    public CitaM(Paciente paciente, Especialidad especialidad, MedicoM medico, String descripcion, String fecha, String hora) {
         this.paciente = paciente;
         this.especialidad = especialidad;
         this.medico = medico;
@@ -17,15 +17,15 @@ public class CitaM {
         this.hora = hora;
     }
 
-    public String getPaciente() {
+    public Paciente getPaciente() {
         return paciente;
     }
 
-    public String getEspecialidad() {
+    public Especialidad getEspecialidad() {
         return especialidad;
     }
 
-    public String getMedico() {
+    public MedicoM getMedico() {
         return medico;
     }
 

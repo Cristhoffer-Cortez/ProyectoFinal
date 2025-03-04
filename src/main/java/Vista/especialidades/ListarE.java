@@ -7,7 +7,7 @@ import javax.swing.table.DefaultTableModel;
 public class ListarE extends javax.swing.JInternalFrame {
     EspecialdadControlador ec = EspecialdadControlador.getInstancia();
     DefaultTableModel tm = new DefaultTableModel();
-
+//
     public ListarE() {
         initComponents();
         tblListado.setModel(tm);

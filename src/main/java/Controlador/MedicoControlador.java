@@ -24,9 +24,11 @@ public class MedicoControlador {
         medicos.add(nmedico);
         return nmedico;
     }
+    
     public ArrayList<MedicoM> ListarMedicos(){
         return medicos;
     }
+    
     public ArrayList<MedicoM>BuscarMedico(String cedula){
         ArrayList<MedicoM> nuevaLista= new ArrayList<>();
         for (MedicoM medico : medicos) {
@@ -36,6 +38,7 @@ public class MedicoControlador {
         }
         return nuevaLista;
     }
+    
     public ArrayList<MedicoM> ListadoPorEspecilidad(String ne){
         ArrayList<MedicoM> nuevaLista= new ArrayList<>();
         for (MedicoM medico : medicos) {
@@ -44,5 +47,13 @@ public class MedicoControlador {
             }  
         }
         return nuevaLista;
+    }
+    public MedicoM MedicoPorCeducla(String cedula){
+        for (MedicoM medico : medicos) {
+            if (medico.getCedula().equals(cedula)){
+                return medico;
+            }
+        }
+        return null;
     }
 }

@@ -28,17 +28,21 @@ public class ControladorPaciente {
         return pacientes;
     }
     
-    
     public ArrayList<Paciente>BuscarPaciente(String cedula){
         ArrayList<Paciente> nuevaLista= new ArrayList<>();
         for (Paciente paciente : pacientes) {
             if (paciente.getCedula().contains(cedula)){
                 nuevaLista.add(paciente);
-            }  
+            }
         }
         return nuevaLista;
     }
-    
-    
-       
+    public Paciente PacientePorCedula(String cedula){
+        for (Paciente paciente : pacientes) {
+            if (paciente.getCedula().equals(cedula)){
+                return paciente;
+            }
+        }
+        return null;
+    }
 }

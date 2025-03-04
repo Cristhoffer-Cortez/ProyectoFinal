@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 public class ListarM extends javax.swing.JInternalFrame {
     DefaultTableModel tm = new DefaultTableModel();
     MedicoControlador mc = MedicoControlador.getInstancia();
+    //
     public ListarM() {
         initComponents();
         tablalist.setModel(tm);

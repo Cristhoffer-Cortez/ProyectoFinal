@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class IngresarE extends javax.swing.JInternalFrame {
     EspecialdadControlador ec = EspecialdadControlador.getInstancia();
-    
+    //
     public IngresarE() {
         initComponents();
     }

@@ -36,6 +36,7 @@ public class EspecialdadControlador {
         }
         return null;
     }
+    
     public ArrayList<Especialidad>BuscarEspecialidad(String cedula){
         ArrayList<Especialidad> nuevaLista= new ArrayList<>();
         for (Especialidad especialidadn : especialidad) {
@@ -44,5 +45,6 @@ public class EspecialdadControlador {
             }  
         }
         return nuevaLista;
-    }    
+    }
+    //A
 }

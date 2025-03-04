@@ -10,7 +10,7 @@ import Vista.especialidades.IngresarE;
 import Vista.especialidades.ListarE;
 
 public class Principal extends javax.swing.JFrame {
-
+//
     public Principal() {
         initComponents();
     }

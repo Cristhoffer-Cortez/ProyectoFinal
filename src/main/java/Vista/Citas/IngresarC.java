@@ -4,6 +4,7 @@ import Controlador.CitaControlador;
 import Controlador.ControladorPaciente;
 import Controlador.EspecialdadControlador;
 import Controlador.MedicoControlador;
+import Modelo.CitaM;
 import Modelo.Especialidad;
 import Modelo.MedicoM;
 import Modelo.Paciente;
@@ -13,6 +14,7 @@ public class IngresarC extends javax.swing.JInternalFrame {
     ControladorPaciente cp = ControladorPaciente.getInstancia();
     EspecialdadControlador ec = EspecialdadControlador.getInstancia();
     MedicoControlador mc = MedicoControlador.getInstancia();
+    CitaControlador cc = CitaControlador.getInstancia();
     
     public IngresarC() {
         initComponents();
@@ -177,9 +179,19 @@ public class IngresarC extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BtnGuardarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarCitaActionPerformed
-        String paciente = cbxpacientes.getSelectedItem().toString();
-        String medicos = cbxmedicos.getSelectedItem().toString();
-        String especialidad = cbxespecialidades.getSelectedItem().toString();
+        //PACIENTE
+        String infpaciente = cbxpacientes.getSelectedItem().toString();
+        String pacientepar[] = infpaciente.split(" ");
+        String cedpaciente = pacientepar[0];
+        Paciente pm = cp.PacientePorCedula(cedpaciente);
+        //MEDICO
+        String infmedicos = cbxmedicos.getSelectedItem().toString();
+        String medicopar[] = infmedicos.split(" ");
+        String cedmedico = medicopar[0];
+        MedicoM mm = mc.MedicoPorCeducla(cedmedico);
+        //ESPECIALIDAD
+        Especialidad em = mm.getespecialidadmodelo();
+        
         String descripcion = txtdescripcion.getText();
         String Fecha = txtfecha.getText();
         String hora = txthora.getText();
@@ -200,12 +212,22 @@ public class IngresarC extends javax.swing.JInternalFrame {
 
         if (!hora.matches("\\d{2}:\\d{2}")) {
             JOptionPane.showMessageDialog(this, "LA HORA DEBE SEGIR EL FORMATO: hh:mm.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
+            return; 
         }
-    
-        CitaControlador cic = CitaControlador.getInstancia();
-        cic.Guardar(paciente, especialidad, medicos, descripcion, Fecha, hora);
-        JOptionPane.showMessageDialog(this, "Guardado correctamente");
+        CitaM cm = cc.Guardar(pm, em, mm, descripcion, Fecha, hora);
+        
+        
+        JOptionPane.showMessageDialog(
+                this,
+                "Cita ingresada para la fecha: "+
+                cm.getFecha()+
+                "  Para la: "+
+                cm.getHora()+
+                "  Con el medico: "+
+                cm.getMedico()+
+                "  De especialidad: "+
+                cm.getEspecialidad()
+        );
         txtdescripcion.setText("");
         txtfecha.setText("");
         txthora.setText("");
