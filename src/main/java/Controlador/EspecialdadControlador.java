@@ -46,5 +46,21 @@ public class EspecialdadControlador {
         }
         return nuevaLista;
     }
-    //A
+    public boolean especialidadExiste(String especialidadex) {
+        for (Especialidad espe : especialidad) {
+            if (espe.getNombre().equals(especialidadex)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean eliminarEspecialidad(String cedula) {
+        for (Especialidad espe : especialidad) {
+            if (espe.getNombre().equals(cedula)) {
+                especialidad.remove(espe);
+                return true;
+            }
+        }
+        return false; 
+    }
 }

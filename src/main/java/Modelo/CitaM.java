@@ -7,14 +7,16 @@ public class CitaM {
     public String descripcion;
     public String fecha;
     public String hora;
+    public boolean estado;
 
-    public CitaM(Paciente paciente, Especialidad especialidad, MedicoM medico, String descripcion, String fecha, String hora) {
+    public CitaM(Paciente paciente, Especialidad especialidad, MedicoM medico, String descripcion, String fecha, String hora, boolean estado) {
         this.paciente = paciente;
         this.especialidad = especialidad;
         this.medico = medico;
         this.descripcion = descripcion;
         this.fecha = fecha;
         this.hora = hora;
+        this.estado = estado;
     }
 
     public Paciente getPaciente() {
@@ -40,5 +42,7 @@ public class CitaM {
     public String getHora() {
         return hora;
     }
-    
+    public String getEstado() {
+        return estado ? "NO ATENDIDO":"ATENDIDO";
+    }
 }

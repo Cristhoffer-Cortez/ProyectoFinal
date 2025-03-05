@@ -18,6 +18,8 @@ public class IngresarE extends javax.swing.JInternalFrame {
         txtespecialidad = new javax.swing.JTextField();
         BtnGuardar = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(51, 51, 255));
+
         jLabel1.setText("Escriba la especialidad: ");
 
         BtnGuardar.setText("GUARDAR");
@@ -68,6 +70,10 @@ public class IngresarE extends javax.swing.JInternalFrame {
 
         if (!especialidad.matches("[a-zA-Z\\s]+")) {
             JOptionPane.showMessageDialog(null, "LA ESPECIALIDAD SOLO DEBE CONTENER LETRAS.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (ec.especialidadExiste(especialidad)) {
+            JOptionPane.showMessageDialog(null, "LA ESPECIALIDAD YA EXISTE.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
         ec.GuardarEspecialidad(especialidad);

@@ -56,4 +56,21 @@ public class MedicoControlador {
         }
         return null;
     }
+    public boolean eliminarMedico(String cedula) {
+        for (MedicoM mem : medicos) {
+            if (mem.getCedula().equals(cedula)) {
+                medicos.remove(mem);
+                return true;
+            }
+        }
+        return false; 
+    }
+    public boolean medicoExiste(String medicobus) {
+        for (MedicoM mem : medicos) {
+            if (mem.getCedula().equals(medicobus)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

@@ -70,6 +70,8 @@ public class IngresarC extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(102, 255, 255));
+
         jLabel1.setText("SELECCIONAR PACIENTE: ");
 
         jLabel2.setText("SELECCIONE ESPECIALIDAD:");
@@ -195,6 +197,7 @@ public class IngresarC extends javax.swing.JInternalFrame {
         String descripcion = txtdescripcion.getText();
         String Fecha = txtfecha.getText();
         String hora = txthora.getText();
+        boolean estado = true;
         
         if (descripcion.isEmpty() || Fecha.isEmpty() || hora.isEmpty()) {
             JOptionPane.showMessageDialog(this, "LLENE LOS CAMPOS VACIOS.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -214,8 +217,7 @@ public class IngresarC extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "LA HORA DEBE SEGIR EL FORMATO: hh:mm.", "Error", JOptionPane.ERROR_MESSAGE);
             return; 
         }
-        CitaM cm = cc.Guardar(pm, em, mm, descripcion, Fecha, hora);
-        
+        CitaM cm = cc.Guardar(pm, em, mm, descripcion, Fecha, hora, estado);
         
         JOptionPane.showMessageDialog(
                 this,
@@ -224,9 +226,9 @@ public class IngresarC extends javax.swing.JInternalFrame {
                 "  Para la: "+
                 cm.getHora()+
                 "  Con el medico: "+
-                cm.getMedico()+
+                cm.getMedico().getNombre()+
                 "  De especialidad: "+
-                cm.getEspecialidad()
+                cm.getEspecialidad().getNombre()
         );
         txtdescripcion.setText("");
         txtfecha.setText("");

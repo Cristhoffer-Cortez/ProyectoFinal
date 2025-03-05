@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 public class IngresarM extends javax.swing.JInternalFrame {
     EspecialdadControlador ec = EspecialdadControlador.getInstancia();
+    MedicoControlador mec = MedicoControlador.getInstancia();
     public IngresarM() {
         initComponents();
         for (Especialidad em : ec.Listado()) {
@@ -31,6 +32,8 @@ public class IngresarM extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         cbxespecialidades = new javax.swing.JComboBox<>();
+
+        setBackground(new java.awt.Color(102, 255, 102));
 
         jLabel1.setText("Cedula: ");
 
@@ -140,6 +143,10 @@ public class IngresarM extends javax.swing.JInternalFrame {
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "LA EDAD DEBE SER UN NUMERO.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (mec.medicoExiste(Cedula)) {
+            JOptionPane.showMessageDialog(this, "ESTE MEDICO YA EXISTE.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
     

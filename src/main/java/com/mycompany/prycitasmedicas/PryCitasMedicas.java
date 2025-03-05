@@ -1,4 +1,5 @@
 package com.mycompany.prycitasmedicas;
+import Controlador.CitaControlador;
 import Controlador.ControladorPaciente;
 import Controlador.EspecialdadControlador;
 import Controlador.MedicoControlador;
@@ -19,12 +20,13 @@ public class PryCitasMedicas {
         EspecialdadControlador ec = EspecialdadControlador.getInstancia();
         Especialidad ec1 = ec.GuardarEspecialidad("Cardiologuia");
         Especialidad ec2 = ec.GuardarEspecialidad("Odontologuia");
-                        
+        Especialidad ec3 = ec.GuardarEspecialidad("Traumatologuia");
+        
         MedicoControlador mc = MedicoControlador.getInstancia();
-        mc.Guardar(ec1, "321", "Carlos", 56, true);
-        mc.Guardar(ec2, "456", "Ana", 45, false);
-        
-        
+        mc.Guardar(ec1, "321", "Dr.Carlos", 56, true);
+        mc.Guardar(ec1, "123", "Dr.Maria", 54, false);
+        mc.Guardar(ec3, "456", "Dr.Ana", 45, false);
+        mc.Guardar(ec2, "654", "Dr.Raul", 65, true);        
         
     }
 }

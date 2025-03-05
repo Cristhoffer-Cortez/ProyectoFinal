@@ -37,6 +37,9 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        contenedorprincipal.setBackground(new java.awt.Color(204, 0, 204));
+        contenedorprincipal.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout contenedorprincipalLayout = new javax.swing.GroupLayout(contenedorprincipal);
         contenedorprincipal.setLayout(contenedorprincipalLayout);
         contenedorprincipalLayout.setHorizontalGroup(

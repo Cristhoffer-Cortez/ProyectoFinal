@@ -5,7 +5,7 @@ import Controlador.ControladorPaciente;
 import javax.swing.JOptionPane;
 
 public class IngresarP extends javax.swing.JInternalFrame {
-    //
+    ControladorPaciente cp = ControladorPaciente.instancia;
     public IngresarP() {
         initComponents();
     }
@@ -22,6 +22,8 @@ public class IngresarP extends javax.swing.JInternalFrame {
         txtedad = new javax.swing.JTextField();
         txtsexo = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(255, 255, 51));
 
         jLabel1.setText("Cedula: ");
 
@@ -53,9 +55,9 @@ public class IngresarP extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3)
                         .addComponent(txtedad))
                     .addComponent(txtsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(326, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(123, Short.MAX_VALUE)
+                .addContainerGap(167, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(104, 104, 104))
         );
@@ -78,7 +80,7 @@ public class IngresarP extends javax.swing.JInternalFrame {
                 .addComponent(txtsexo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         pack();
@@ -113,6 +115,10 @@ public class IngresarP extends javax.swing.JInternalFrame {
         if (!Nombre.matches("[a-zA-Z\\s]+")) {
         JOptionPane.showMessageDialog(this, "EL NOMBRE DEBE CONTENER SOLO LECTRAS.", "Error", JOptionPane.ERROR_MESSAGE);
         return;
+        }
+        if (cp.cedulaExiste(Cedula)) {
+            JOptionPane.showMessageDialog(this, "ESTE PACIENTE YA EXISTE.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
         }
         ControladorPaciente pacienteControlador = ControladorPaciente.getInstancia();
         

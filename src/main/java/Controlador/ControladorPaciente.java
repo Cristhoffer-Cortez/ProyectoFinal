@@ -45,4 +45,22 @@ public class ControladorPaciente {
         }
         return null;
     }
+    public boolean cedulaExiste(String cedula) {
+        for (Paciente paciente : pacientes) {
+            if (paciente.getCedula().equals(cedula)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean eliminarPaciente(String cedula) {
+        for (Paciente paciente : pacientes) {
+            if (paciente.getCedula().equals(cedula)) {
+                pacientes.remove(paciente);
+                return true;
+            }
+        }
+        return false; 
+    }
+    
 }

@@ -30,6 +30,9 @@ public class ListarE extends javax.swing.JInternalFrame {
         txtbuscar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListado = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(51, 51, 255));
 
         jLabel1.setText("Buscar por nombre: ");
 
@@ -52,6 +55,13 @@ public class ListarE extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(tblListado);
 
+        jButton1.setText("ELIMINAR.");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -61,10 +71,12 @@ public class ListarE extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 490, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -73,9 +85,10 @@ public class ListarE extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -91,8 +104,27 @@ public class ListarE extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_txtbuscarKeyReleased
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int filaSeleccionada = tblListado.getSelectedRow();
+    
+    if (filaSeleccionada != -1) { 
+        String cedulaSeleccionada = tblListado.getValueAt(filaSeleccionada, 0).toString();
+
+        boolean eliminado = ec.eliminarEspecialidad(cedulaSeleccionada);
+
+        if (eliminado) {
+            javax.swing.JOptionPane.showMessageDialog(this, "ESPECIALIDAD ELIMINADA.");
+        }
+        tm.setRowCount(0);
+        CargarListado(); 
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "SELECCIONE UNA ESPECIALIDAD.");
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblListado;

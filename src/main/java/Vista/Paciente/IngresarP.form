@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JInternalFrameFormInfo">
+  <Properties>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="33" green="ff" red="ff" type="rgb"/>
+    </Property>
+  </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
   </SyntheticProperties>
@@ -32,10 +37,10 @@
                   </Group>
                   <Component id="txtsexo" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="282" max="32767" attributes="0"/>
+              <EmptySpace pref="326" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="123" max="32767" attributes="0"/>
+              <EmptySpace pref="167" max="32767" attributes="0"/>
               <Component id="jButton1" min="-2" pref="191" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
           </Group>
@@ -60,7 +65,7 @@
               <Component id="txtsexo" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="47" max="32767" attributes="0"/>
+              <EmptySpace pref="66" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
